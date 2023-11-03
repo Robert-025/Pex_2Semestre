@@ -90,7 +90,7 @@ WHERE idUsuario = 11;
 -----------------------------------------------------------------------------------------------------------------------------
 
 INSERT INTO clinicas(razaoSocial, nomeClinica, endereco, cnpj, horarioAbertura, horarioFechamento)
-VALUES				('SP Medical Groups', 'Clinica Possarle', 'Av. Barão Limeira, 532, São Paulo, SP', '86400902000130', '09:00:00', '18:00:00');
+VALUES				('SP Medical Groups', 'Clinica Possarle', 'Av. Barão Limeira, 532, São Paulo, SP', '00000000000000', '09:00:00', '18:00:00');
 
 INSERT INTO especialidades(nome)
 VALUES					  ('Acupuntura'),
