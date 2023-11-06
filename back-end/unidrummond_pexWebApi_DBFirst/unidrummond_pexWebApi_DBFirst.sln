@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "unidrummond_pexWebApi_DBFirst", "unidrummond_pexWebApi_DBFirst.csproj", "{D7BC7B47-C3AF-4A45-8C57-345AA42AA849}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D7BC7B47-C3AF-4A45-8C57-345AA42AA849}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7BC7B47-C3AF-4A45-8C57-345AA42AA849}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7BC7B47-C3AF-4A45-8C57-345AA42AA849}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7BC7B47-C3AF-4A45-8C57-345AA42AA849}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A6B055C2-DA1E-4474-BCFC-8AD8874AE55B}
+	EndGlobalSection
+EndGlobal
