@@ -18,7 +18,7 @@ namespace unidrummond_pexWebApi_DBFirst.Interfaces
         /// </summary>
         /// <param name="id">Id da clínica que será buscada</param>
         /// <returns>A clínica desejada</returns>
-        Clinica GetClinica(int id);
+        Clinica GetClinicaById(int id);
 
         /// <summary>
         /// Cadastra uma nova clínica  

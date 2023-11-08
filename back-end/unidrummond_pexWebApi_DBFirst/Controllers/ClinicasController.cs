@@ -35,6 +35,17 @@ namespace unidrummond_pexWebApi_DBFirst.Controllers
         {
             return Ok(_clinicaRepository.GetAllClinicas());
         }
+
+        /// <summary>
+        /// Lista uma clinica por ID
+        /// </summary>
+        /// <param name="id">ID da clinica que sera listada</param>
+        /// <returns>A clinica que foi buscada</returns>
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id) 
+        {
+            return Ok(_clinicaRepository.GetClinicaById(id));
+        }
         
     }
 }
