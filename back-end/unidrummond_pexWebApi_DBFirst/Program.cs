@@ -2,7 +2,7 @@ global using unidrummond_pexWebApi_DBFirst.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//Add services to the container
+//Define o uso dos controllers
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
@@ -10,7 +10,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<SpMedicalGroupContext>();
 
 var app = builder.Build();
-
+ 
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -25,6 +25,7 @@ app.UseAuthentication();
 
 app.UseAuthorization(); 
 
-app.MapControllers()    ;
+//Mapeia os controlles
+app.MapControllers();
 
 app.Run();

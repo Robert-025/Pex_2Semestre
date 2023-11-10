@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
+using unidrummond_pexWebApi_DBFirst.Domains;
 using unidrummond_pexWebApi_DBFirst.Interfaces;
 using unidrummond_pexWebApi_DBFirst.Repositories;
 
@@ -33,7 +36,16 @@ namespace unidrummond_pexWebApi_DBFirst.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_clinicaRepository.GetAllClinicas());
+            try
+            {
+                //Retorna o status code e a clínica 
+                return Ok(_clinicaRepository.GetAllClinicas());
+            }
+            catch (Exception ex)
+            {
+                //Retorna o status code com o código de erro
+                return BadRequest(ex);
+            };
         }
 
         /// <summary>
@@ -44,8 +56,109 @@ namespace unidrummond_pexWebApi_DBFirst.Controllers
         [HttpGet("{id}")]
         public IActionResult GetById(int id) 
         {
-            return Ok(_clinicaRepository.GetClinicaById(id));
+            try
+            {
+                //Retorna o status code e a clínica 
+                return Ok(_clinicaRepository.GetClinicaById(id));
+            }
+            catch (Exception ex)
+            {
+                //Retorna o status code com o código de erro
+                return BadRequest(ex);
+            };
         }
-        
+
+        /// <summary>
+        /// Lista as clínicas e seus médicos
+        /// </summary>
+        /// <returns>Um status code 200 - OK com uma lista de clínicas e seus médicos</returns>
+        [HttpGet("medicos")]
+        public IActionResult GetMedicos()
+        {
+            try
+            {
+                //Retorna o status code e a lista
+                return Ok(_clinicaRepository.GetMedicos());
+            }
+            catch (Exception ex)
+            {
+                //Retorna o status code com o código de erro
+                return BadRequest(ex);
+            }
+        }
+
+        /// <summary>
+        /// Cadastra uma nova clínica
+        /// </summary>
+        /// <param name="novaClinica">Objeto com as informações que serão cadastradas</param>
+        /// <returns>Um status code 201 - Created</returns>
+        //[Authorize(Roles = "1")]
+        [HttpPost]
+        public IActionResult Post(Clinica novaClinica)
+        {
+            try
+            {
+                //Chama o método de cadastrar
+                _clinicaRepository.RegisterClinica(novaClinica);
+
+                //Retorna o status code
+                return StatusCode(201);
+            }
+            catch (Exception ex)
+            {
+                //Retorna o status code com o código de erro
+                return BadRequest(ex);
+            }
+        }
+
+        /// <summary>
+        /// Deleta uma clínica existente
+        /// </summary>
+        /// <param name="id">Id da clínica que será deletada</param>
+        /// <returns>Um status code 204 - NoContent</returns>
+        //[Authorize(Roles = "1")]
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                //Chama o método de deletar
+                _clinicaRepository.DeleteClinica(id);
+
+                //Retorna o status code
+                return StatusCode(204);
+            }
+            catch (Exception ex)
+            {
+                //Retorna o status code com o código de erro
+                return BadRequest(ex);
+            }
+        }
+
+        /// <summary>
+        /// Atualiza uma clínica passando seu id na url
+        /// </summary>
+        /// <param name="id">Id da clínica que será atualizada</param>
+        /// <param name="clinicaAtualizada">Objeto com as novas informações</param>
+        /// <returns>Um status code 204 - NoContent</returns>
+        //[Authorize(Roles = "1")]
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, Clinica clinicaAtualizada)
+        {
+            try
+            {
+                //Chama o método de atualizar 
+                _clinicaRepository.UpdateClinica(id, clinicaAtualizada);
+
+                //Retorna o status code
+                return StatusCode(204);
+            }
+            catch (Exception ex)
+            {
+                //Retorna o status code com o código de erro
+                return BadRequest(ex);
+            }
+        }
+
     }
 }

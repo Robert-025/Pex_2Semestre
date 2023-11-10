@@ -1,4 +1,5 @@
-﻿using unidrummond_pexWebApi_DBFirst.Domains;
+﻿using Microsoft.EntityFrameworkCore;
+using unidrummond_pexWebApi_DBFirst.Domains;
 using unidrummond_pexWebApi_DBFirst.Interfaces;
 
 namespace unidrummond_pexWebApi_DBFirst.Repositories
@@ -53,7 +54,8 @@ namespace unidrummond_pexWebApi_DBFirst.Repositories
         /// <returns>Uma lista de clínicas com seus médicos</returns>
         public List<Clinica> GetMedicos()
         {
-            throw new NotImplementedException();
+            //Retorna a lista de clinicas incluindo os médicos
+            return ctx.Clinicas.Include(c => c.Medicos).ToList();
         }
 
         /// <summary>
