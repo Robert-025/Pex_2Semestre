@@ -27,7 +27,7 @@ footer{
 main{
     width: 100%;
     height: 1440px;
-    background-image: url("../img/Doctors-fundo.png");
+    background-image: url("./img/Doctors-fundo.png");
     background-repeat: no-repeat;
     background-position: center;
     display: flex;
